@@ -1,3 +1,35 @@
+# 忽略所有内容
 *
+
+# 但包含 FPSDemo/Source 和 Homework 文件夹
+!FPSDemo/
 !FPSDemo/Source/
 !Homework/
+
+# 递归包含 FPSDemo/Source 和 Homework 文件夹的内容
+!FPSDemo/Source/**
+!Homework/**
+
+# 忽略中间生成文件和其他常见的临时文件
+*.log
+*.tmp
+*.cache
+*.obj
+*.pdb
+*.exe
+*.dll
+*.lib
+
+# 忽略 IDE 相关文件
+.vscode/
+.idea/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# 忽略 Unreal Engine 构建生成的文件夹
+Binaries/
+Build/
+Intermediate/
+Saved/
+DerivedDataCache/
