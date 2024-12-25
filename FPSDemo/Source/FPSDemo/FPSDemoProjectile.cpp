@@ -31,12 +31,40 @@ AFPSDemoProjectile::AFPSDemoProjectile()
 	InitialLifeSpan = 3.0f;
 }
 
+void AFPSDemoProjectile::SetOwner(AActor* NewOwner)
+{
+	Super::SetOwner(NewOwner);
+
+
+	if (AController* OwnerController = Cast<AController>(NewOwner))
+	{
+		OwningPlayerState = Cast<AAFPSDemoPlayerState>(OwnerController->GetPlayerState<APlayerState>());
+	}
+	else if (APawn* OwnerPawn = Cast<APawn>(NewOwner))
+	{
+		OwningPlayerState = Cast<AAFPSDemoPlayerState>(OwnerPawn->GetPlayerState());
+	}
+}
+
+
 void AFPSDemoProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 	// Only add impulse and destroy projectile if we hit a physics
-	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
+	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) 
+			&& OtherComp->IsSimulatingPhysics() && (OwningPlayerState != nullptr))
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+
+		ATargetCube* pCube = Cast<ATargetCube>(OtherActor);
+		if (pCube != nullptr)
+		{
+			OwningPlayerState->AddScore(pCube->GetBonusPoint());
+			pCube->HandleHit();
+		}
+		else
+		{
+			UE_LOG(LogTemp, Log, TEXT("TargetCube Not Exist"));
+		}
 
 		Destroy();
 	}

@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "AFPSDemoPlayerState.h"
+#include "TargetCube.h"
 #include "FPSDemoProjectile.generated.h"
+
 
 class USphereComponent;
 class UProjectileMovementComponent;
@@ -22,8 +25,13 @@ class AFPSDemoProjectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
+	UPROPERTY()
+	AAFPSDemoPlayerState* OwningPlayerState;
+
 public:
 	AFPSDemoProjectile();
+
+	void SetOwner(AActor* Owner) override;
 
 	/** called when projectile hits something */
 	UFUNCTION()

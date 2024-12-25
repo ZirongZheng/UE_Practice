@@ -42,7 +42,9 @@ void UTP_WeaponComponent::Fire()
 			//Set Spawn Collision Handling Override
 			FActorSpawnParameters ActorSpawnParams;
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-	
+			ActorSpawnParams.Owner = Character->GetController();
+			ActorSpawnParams.Instigator = Character;
+
 			// Spawn the projectile at the muzzle
 			World->SpawnActor<AFPSDemoProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 		}
