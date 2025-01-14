@@ -28,6 +28,17 @@ void UTP_WeaponComponent::Fire()
 		return;
 	}
 
+	AAFPSDemoPlayerState* PlayerState = Character->GetPlayerState<AAFPSDemoPlayerState>();
+	if (PlayerState == nullptr)
+	{
+		return;
+	}
+
+	if (PlayerState->TryUseAmmo() == false)
+	{
+		return;
+	}
+
 	// Try and fire a projectile
 	if (ProjectileClass != nullptr)
 	{

@@ -59,6 +59,7 @@ void AFPSDemoProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor,
 		if (pCube != nullptr)
 		{
 			OwningPlayerState->AddScore(pCube->GetBonusPoint());
+			OwningPlayerState->HitTarget();
 			pCube->HandleHit();
 		}
 		else
