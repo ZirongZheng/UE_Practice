@@ -12,23 +12,23 @@
 
 * 登录界面
 
-  ![image-20250114230418100](E:\UEProject\UE_Practice\Homework\Homework4.assets\image-20250114230418100.png)
+  ![image-20250114230418100](Homework4.assets/image-20250114230418100.png)
 
 * 加载界面
 
-  ![image-20250114230429826](E:\UEProject\UE_Practice\Homework\Homework4.assets\image-20250114230429826.png)
+  ![image-20250114230429826](Homework4.assets/image-20250114230429826.png)
 
 * HUD界面
 
-  ![image-20250114230459907](E:\UEProject\UE_Practice\Homework\Homework4.assets\image-20250114230459907.png)
+  ![image-20250114230459907](Homework4.assets/image-20250114230459907.png)
 
   击中准星效果变换，以及子弹数变换
 
-  ![image-20250114230515153](E:\UEProject\UE_Practice\Homework\Homework4.assets\image-20250114230515153.png)
+  ![image-20250114230515153](Homework4.assets/image-20250114230515153.png)
 
   打完子弹会自动进行装填
 
-  ![image-20250114230537799](E:\UEProject\UE_Practice\Homework\Homework4.assets\image-20250114230537799.png)
+  ![image-20250114230537799](Homework4.assets/image-20250114230537799.png)
 
 ## 主要代码
 
